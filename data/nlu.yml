@@ -1,0 +1,36 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - Hello
+    - Hi
+    - Hey
+    - Hello there
+    - Hey there
+
+- intent: ask_recommendations
+  examples: |
+    - I need some outfit recommendations
+    - I'm looking for some fashion recommendations
+    - Can you recommend me some outfits?
+    - I need some clothing recommendations
+    - I'm looking for clothing recommendations
+
+- intent: recommend_product
+  entities:
+    - brand:
+      - type: from_entity
+        entity: brand
+    - category:
+      - type: from_entity
+        entity: category
+    - price_range:
+      - type: from_entity
+        entity: price_range
+  examples: |
+    - brand: Nike
+    - category: casual wear
+    - price_range: under 1000
+
+

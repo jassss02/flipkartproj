@@ -1,0 +1,14 @@
+version: "3.1"
+
+stories:
+- story: User asks for recommendations
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_recommendations
+  - action: utter_ask_recommendations
+  - action: recommendation_form
+  - active_loop: recommendation_form
+  - active_loop: null
+  - action: action_recommend_product
+
