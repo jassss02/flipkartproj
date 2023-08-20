@@ -1,0 +1,49 @@
+version: "3.1"
+
+intents:
+  - greet
+  - ask_recommendations
+
+slots:
+  brand:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: brand
+  category:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: category
+  price_range:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: price_range
+
+responses:
+  utter_greet:
+    - text: "Hello! How can I help you today?"
+  utter_ask_recommendations:
+    - text: "I can provide you with fashion recommendations. What are you looking for?"
+
+actions:
+  - action_recommend_product
+
+forms:
+  recommendation_form:
+    required_slots:
+      brand:
+        - type: from_entity
+          entity: brand
+      category:
+        - type: from_entity
+          entity: category
+      price_range:
+        - type: from_entity
+          entity: price_range
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
